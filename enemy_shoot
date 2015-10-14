@@ -1,0 +1,25 @@
+#pragma strict
+var speed = -1.5;
+var Enemy_Shoot : Rigidbody2D;
+
+
+function Start () 
+{
+
+}
+
+function Update () 
+{
+
+}
+
+Invoke("SpawnEnemy_Shoot", 2.0);
+
+function SpawnEnemy_Shoot()
+{
+	var Enemy_ShootInstance : Rigidbody2D;
+	
+	Enemy_ShootInstance = Instantiate(Enemy_Shoot, Vector3(Random.Range(-6,6), 7, 0), Quaternion.Euler(new Vector3(0,0,0)));
+	Enemy_ShootInstance.name = "Enemy_Shoot(Clone)";
+	Enemy_ShootInstance.velocity = new Vector2(0, speed);
+}
