@@ -1,0 +1,41 @@
+#pragma strict
+
+var counter:float = 0.0;
+
+var Player2 : GameObject;
+var spawnPosition;
+
+var gameObjects : GameObject[];
+
+function Start () 
+{
+
+}
+
+function Update () 
+{
+		SpawnPlayer2();
+}
+
+function SpawnPlayer2()
+{
+	if(Input.GetKeyDown("escape"))
+	{
+		if(counter == 0.0)
+		{
+			spawnPosition = Vector3(4.2,-3.6,0);
+			var tempSpawn = Instantiate(Player2, spawnPosition, Quaternion.identity);
+			counter = 1.0;
+		}
+	}
+	if(Input.GetKeyDown("enter"))
+	{
+		if (counter == 1.0)
+		{
+			gameObjects = GameObject.FindGameObjectsWithTag("Player2");
+			for(var i = 0; i < gameObjects.length; i++)
+				Destroy(gameObjects[i]);
+			counter = 0.0;
+		}
+	}
+}
